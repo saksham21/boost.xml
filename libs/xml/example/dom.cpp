@@ -4,10 +4,11 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/xml/dom.hpp>
-#include "string.hpp"
+#include "qstring.hpp"
 #include <iostream>
 
 namespace dom = boost::xml::dom;
+using namespace qt;
 
 int main(int argc, char **argv)
 {
@@ -19,7 +20,7 @@ int main(int argc, char **argv)
   try
   {
     // create a document from a file
-    document_ptr document = dom::parse_file<std::string>(argv[1], false);
+    document_ptr document = dom::parse_file<QString>(argv[1], false);
     element_ptr root = document->root();
     std::cout << "the root node " << root->name() 
 	      << " has the following child nodes:" << std::endl;
@@ -86,7 +87,7 @@ int main(int argc, char **argv)
 	  element_ptr xref = (*i)->parent();
 	  element_ptr parent = xref->parent();
 	  // For simplicity's sake, assume the content is text only.
-	  std::string content = xref->content();
+	  QString content = xref->content();
 	  element::child_iterator j = parent->find(xref);
 	  if (j != parent->end_children())
 	  {

@@ -6,15 +6,16 @@
 #include <boost/xml/reader.hpp>
 
 using namespace boost::xml::reader;
+using namespace std;
 
 int main(int, char **)
 {
   try
   {
-    parser<std::string> parser("article.xml");
+    parser<QString> parser("article.xml");
     while (parser.next())
     {
-      token_base<std::string> const &current = parser.get_token();
+      token_base<QString> const &current = parser.get_token();
       std::cout << current.depth() << ' ' << current.name() << ' ' << current.value() << ' '
                 << '(' << current.type() << ')' << std::endl;
     }

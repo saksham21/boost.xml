@@ -4,7 +4,9 @@
 #include <boost/xml/dom/element.hpp>
 #include <boost/xml/dom/dtd.hpp>
 #include <boost/xml/dom/io.hpp>
+//#include </usr/include/qt4/QtCore/qstring.hpp>
 #include <string>
+#include <QtCore/qstring.h>
 #include <memory>
 #include <stdexcept>
 #include <cassert>
@@ -24,7 +26,7 @@ class document : public detail::wrapper<xmlDoc*>
   friend std::auto_ptr<document<S> > detail::factory<S>(xmlDoc *);
   friend void process_xinclude<>(document<S> &);
 public:
-  document(std::string const &version = "1.0")
+  document( std::string const &version = "1.0")
     : detail::wrapper<xmlDoc*>(xmlNewDoc((xmlChar *)version.c_str())) {}
   ~document() { xmlFreeDoc(this->impl());}
   std::string encoding() const;

@@ -2,7 +2,9 @@
 #define boost_xml_dom_dtd_hpp_
 
 #include <libxml/tree.h>
-#include <string>
+ #include <string>
+// #include <../../../../../../../../usr/include/qt4/QtCore/qstring.hpp>
+#include <QtCore/qstring.h>
 
 namespace boost
 {
