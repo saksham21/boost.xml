@@ -4,9 +4,10 @@
 #include <boost/xml/dom/element.hpp>
 #include <boost/xml/dom/dtd.hpp>
 #include <boost/xml/dom/io.hpp>
-//#include </usr/include/qt4/QtCore/qstring.hpp>
-#include <string>
+// #include <string>
 #include <QtCore/qstring.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qtextstream.h>
 #include <memory>
 #include <stdexcept>
 #include <cassert>

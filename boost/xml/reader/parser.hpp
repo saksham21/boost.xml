@@ -4,7 +4,7 @@
 #include <boost/xml/reader/detail.hpp>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
-#include <string>
+// #include <string>
 #include <memory>
 #include <stdexcept>
 #include <stdio.h>
@@ -29,14 +29,13 @@ struct convert<QString>
     // in place of toLocal8bit() we can also use Qstring::toUtf8()
     const char *arr2=arr1.data();
     return (xmlChar *)arr2;
-  } //{ return (xmlChar *)v.c_str();}
+  }
   static QString const out(xmlChar const *v)
   {
     const char *arr1=(char *)v;
     QString arr2 = QString::fromLocal8Bit(arr1);
     return arr2;
   }
-//  { return v ? std::string((char const *)v) : std::string("");}
 };
 
 template <typename S>
@@ -61,15 +60,16 @@ template <typename S>
 class parser
 {
 public:
-  const char* convert1(QString const &v)
-  {
-    QByteArray arr1=v.toLocal8Bit();
-    // in place of toLocal8bit() we can also use Qstring::toUtf8()
-    const char *arr2=arr1.data();
-    return arr2;
-  }
+  // const char* convert1(QString const &v)
+  // {
+  //   QByteArray arr1=v.toLocal8Bit();
+  //   // in place of toLocal8bit() we can also use Qstring::toUtf8()
+  //   const char *arr2=arr1.data();
+  //   return arr2;
+  // }
+
   parser(QString const &filename)
-    : impl_(xmlReaderForFile(convert1(filename), 0, 0)),
+    : impl_(xmlReaderForFile((filename.toStdString()).c_str(), 0, 0)),
       status_(0)
   {
     if (!impl_) throw std::runtime_error("unable to open file");
