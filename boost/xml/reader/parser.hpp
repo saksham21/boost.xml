@@ -55,19 +55,10 @@ protected:
   xmlTextReader *reader_;
 };
 
-// convert<S>::*in(&filename)
 template <typename S> 
 class parser
 {
 public:
-  // const char* convert1(QString const &v)
-  // {
-  //   QByteArray arr1=v.toLocal8Bit();
-  //   // in place of toLocal8bit() we can also use Qstring::toUtf8()
-  //   const char *arr2=arr1.data();
-  //   return arr2;
-  // }
-
   parser(QString const &filename)
     : impl_(xmlReaderForFile((filename.toStdString()).c_str(), 0, 0)),
       status_(0)
@@ -81,6 +72,7 @@ public:
     token_base<S> token(impl_);
     return token;
   }
+
 private:
   xmlTextReader *impl_;
   int status_;
@@ -88,6 +80,5 @@ private:
 }
 }
 }
-
 
 #endif

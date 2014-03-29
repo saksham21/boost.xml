@@ -4,7 +4,7 @@
 
 qstring.hpp : defines a converter class which basically converts libxml2::xmlChar* to qt::QString
 
-reader1.cpp : example which proves that dom::xml::dom is string-agnostic.
+reader.cpp : example which proves that dom::xml::dom works fine for qt::QString as well.
 
 // End here
 
