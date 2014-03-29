@@ -4,7 +4,6 @@
 #include <boost/xml/reader/detail.hpp>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
-// #include <string>
 #include <memory>
 #include <stdexcept>
 #include <stdio.h>
