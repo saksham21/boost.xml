@@ -4,23 +4,20 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/xml/reader.hpp>
-#include <QtCore/qstring.h>
-#include <QtCore/qbytearray.h>
-#include <QtCore/qtextstream.h>
+#include <string.h>
 
 using namespace boost::xml::reader;
 using namespace std;
 
 int main(int, char **)
 {
-  QTextStream out1(stdout);
   try
   {
-    parser<QString> parser("article.xml");
+    parser<string> parser("article.xml");
     while (parser.next())
     {
-      token_base<QString> const &current = parser.get_token();
-      out1 << current.depth() << ' ' << current.name() << ' ' << current.value() << ' ' << '(' << current.type() << ')' << endl;
+      token_base<string> const &current = parser.get_token();
+      cout << current.depth() << ' ' << current.name() << ' ' << current.value() << ' ' << '(' << current.type() << ')' << endl;
     }
   }
   catch (std::exception &e)
