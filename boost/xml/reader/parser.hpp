@@ -2,6 +2,7 @@
 #define boost_xml_reader_parser_hpp_
 
 #include <boost/xml/reader/detail.hpp>
+#include <boost/xml/convert.hpp>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <memory>
@@ -11,6 +12,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace boost::xml::reader;
 
 namespace boost
 {
@@ -19,15 +21,15 @@ namespace xml
 namespace reader
 {
 template <typename S> class parser;
-
-template <typename S> struct convert;
-template <>
-struct convert<string>
-{
-  static xmlChar const *in(string const &v) { return (xmlChar *)v.c_str();}
-  static string out(xmlChar const *v)
-  { return v ? string((char const *)v) : string("");}
-};
+// template <typename S> struct convert;
+// template <>
+// struct convert<string>
+// {
+// };
+//   static xmlChar const *in(string const &v) { return (xmlChar *)v.c_str();}
+//   static string out(xmlChar const *v)
+//   { return v ? string((char const *)v) : string("");}
+// };
 
 template <typename S>
 class token_base
