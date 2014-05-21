@@ -19,16 +19,7 @@ namespace xml
 namespace reader
 {
 template <typename S> class parser;
-// template <typename S> struct convert;
-// template <>
-// struct convert<string>
-// {
-// };
-//   static xmlChar const *in(string const &v) { return (xmlChar *)v.c_str();}
-//   static string out(xmlChar const *v)
-//   { return v ? string((char const *)v) : string("");}
-// };
-
+  
 template <typename S>
 class token_base
 {

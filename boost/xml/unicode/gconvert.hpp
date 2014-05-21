@@ -1,16 +1,14 @@
-#include <boost/xml/reader.hpp>
+#include <boost/xml/convert.hpp>
 #include <bits/stdc++.h>
 #include <glibmm/ustring.h>
 
 using namespace std;
 using namespace Glib;
-using namespace boost::xml::reader;
+using namespace boost::xml;
 
 namespace boost
 {
 namespace xml
-{
-namespace reader
 {
 template <typename S> struct convert;
 template <>
@@ -36,6 +34,5 @@ struct convert<ustring>
     }
   }
 };
-}
 }
 }

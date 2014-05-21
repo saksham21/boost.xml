@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
-#include <boost/xml/reader.hpp>
+#include <boost/xml/convert.hpp>
 
 using namespace std;
-using namespace boost::xml::reader;
+using namespace boost::xml;
 
 namespace boost
 {
 namespace xml
-{
-namespace reader
 {
 template <typename S> struct convert;
 template<>
@@ -23,6 +21,5 @@ struct convert<string>
   	return v ? string((char const *)v) : string("");
   }
 };
-}
 }
 }
