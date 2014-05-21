@@ -15,7 +15,7 @@ namespace dom
 class invalid_cast : public std::invalid_argument
 {
 public:
-  invalid_cast( std::string const &msg) 
+  invalid_cast(std::string const &msg) 
     : std::invalid_argument("invalid cast from " + msg) {}
 };
 

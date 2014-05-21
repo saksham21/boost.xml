@@ -4,8 +4,9 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/xml/dom.hpp>
-#include "string.hpp"
+#include "qstring.hpp"
 #include <iostream>
+#include <QtCore/qtextstream.h>
 
 namespace dom = boost::xml::dom;
 using namespace std;
@@ -19,27 +20,27 @@ int main(int argc, char **argv)
   }
   try
   {
+  	QTextStream out1(stdout);
     // create a document from a file
-    document_ptr document = dom::parse_file<string>(argv[1], false);
+    document_ptr document = dom::parse_file<QString>(argv[1], false);
     element_ptr root = document->root();
-    std::cout << "the root node " << root->name() 
-	      << " has the following child nodes:" << std::endl;
+   out1 << "the root node " << root->name() << " has the following child nodes:\n";
     for (element::child_iterator i = root->begin_children();
 	 i != root->end_children();
 	 ++i)
     {
-      std::cout << " " << (*i)->name() << std::endl;
+      out1 << " " << (*i)->name() << "\n";
     }
     // find all sections, no matter where...
     {
       xpath path("//section");
-      std::cout << "searching with xpath '" << path.string() << "' in root node: ";
+      out1 << "searching with xpath '" << path.string() << "' in root node: ";
       node_set set = path.find(root);
-      std::cout << set.size() << " nodes have been found:" << std::endl;
+      out1 << set.size() << " nodes have been found:\n";
       for (node_set::iterator i = set.begin(); i != set.end(); ++i)
       {
 	//...and print their structural path
- 	std::cout << " " << (*i)->path() << std::endl;
+ 	out1 << " " << (*i)->path() << "\n";
       }
     }
     // find the title node (if there is one)
@@ -78,8 +79,8 @@ int main(int argc, char **argv)
 	node_set target = id.find(root);
 	if (!target.size())
 	{
-	  std::cout << " document has reference to non-existing id '"
-		    << attribute->value() << '\'' << std::endl;
+    out1 << " document has reference to non-existing id '"
+		    << attribute->value() << '\'' << "\n";
 	  std::cout << "removing invalid reference..." << std::endl;
 	  // We are looking at a 'linkend' attribute, and we want to remove
 	  // the 'xref' parent element from its parent, so we need to go two 
@@ -87,7 +88,7 @@ int main(int argc, char **argv)
 	  element_ptr xref = (*i)->parent();
 	  element_ptr parent = xref->parent();
 	  // For simplicity's sake, assume the content is text only.
-	  string content = xref->content();
+	  QString content = xref->content();
 	  element::child_iterator j = parent->find(xref);
 	  if (j != parent->end_children())
 	  {

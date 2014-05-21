@@ -3,7 +3,7 @@
 
 #include <boost/xml/dom/document.hpp>
 #include <libxml/parserInternals.h>
-#include <QtCore/qstring.h>
+#include <string>
 #include <stdexcept>
 #include <memory>
 #include <sstream>

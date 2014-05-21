@@ -3,8 +3,6 @@
 
 #include <boost/xml/reader/detail.hpp>
 #include <boost/xml/convert.hpp>
-#include <QtCore/qstring.h>
-#include <QtCore/qbytearray.h>
 #include <memory>
 #include <stdexcept>
 #include <stdio.h>

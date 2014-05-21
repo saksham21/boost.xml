@@ -2,10 +2,7 @@
 #define boost_xml_dom_dtd_hpp_
 
 #include <libxml/tree.h>
-//#include <string>
-#include <QtCore/qstring.h>
-#include <QtCore/qbytearray.h>
-#include <QtCore/qtextstream.h>
+#include <string>
 
 namespace boost
 {
@@ -23,9 +20,9 @@ class dtd
   friend class document<S>;
   friend class dtd_ptr<S>;
 public:
-  QString name() const { return static_cast<char *>(impl_->name);}
-  QString external_id() const { return static_cast<char *>(impl_->ExternalID);}
-  QString system_id() const { return static_cast<char *>(impl_->SystemID);}
+  std::string name() const { return static_cast<char *>(impl_->name);}
+  std::string external_id() const { return static_cast<char *>(impl_->ExternalID);}
+  std::string system_id() const { return static_cast<char *>(impl_->SystemID);}
   
 private:
   dtd(xmlDtd *dtd) : impl_(dtd) {}
