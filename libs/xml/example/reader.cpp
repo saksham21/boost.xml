@@ -4,7 +4,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/xml/reader.hpp>
-#include <string.h>
+#include <bits/stdc++.h>
 
 using namespace boost::xml::reader;
 using namespace std;
