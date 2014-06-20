@@ -43,7 +43,7 @@ class token_base
 	friend class parser<S>;
 public:
 	token_base()
-		: h_() {}
+		: h_(type_(none), depth_(0)) {}
 	~token_base() {}
 
 	int depth() const { return h_.depth(); }
@@ -61,9 +61,10 @@ class parser
 public:
 	parser(std::string const &filename)
 		: token_(/* how to initialise this ?? */),
-		  status_(0)
+		  status_(0),
+		  parser_(new SAXParser)
 	{
-		if(!parser->parseFirst(filename.c_str(), token_))
+		if(!parser_->parseFirst(filename.c_str(), token_))
 		{
 			std::cerr << "scanFirst() failed\n" << std::endl;
 			XMLPlatformUtils::Terminate();
@@ -71,7 +72,7 @@ public:
 		}
 	}
 	~parser() {}
-  	bool next() { status_ = parser->parseNext(token_); return status_ == 1;}
+  	bool next() { status_ = parser_->parseNext(token_); return status_ == 1;}
 
   	token_base<S> get_token()
   	{
@@ -80,7 +81,7 @@ public:
   	}
 
 private:
-	SAXParser* parser = new SAXParser; // how to implement this ???
+	SAXParser* parser_ ;// how to implement this ???
 	XMLPScanToken token_;
 	int status_;
 };
