@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 #include <xercesc/util/PlatformUtils.hpp>
-#include <boost/xml/backends/xerces/reader/parser.hpp> // just for now....later will be using some macro so that it can work with boot/xml/reader.hpp
+//#include <boost/xml/backends/xerces/reader/parser.hpp> // just for now....later will be using some macro so that it can work with boot/xml/reader.hpp
+#include "parser.hpp"
 
 using namespace std;
+using namespace boost::xml::xerces::reader;
 
 int main(int , char **)
 {
@@ -27,12 +29,11 @@ int main(int , char **)
 	}
   	catch (const XMLException& toCatch)
   	{
-  		std::cerr << "\nAn error occurred: '" << xmlFile.c_str() << "'\n"
+  		std::cerr << "\nAn error occurred: '" << "article.xml" << "'\n"
 	      << "Exception message is: \n"
 	      << StrX(toCatch.getMessage())
 	      << "\n" << std::endl;
 	  }
-	delete parser;
 
 	XMLPlatformUtils::Terminate();
 	return 0;
