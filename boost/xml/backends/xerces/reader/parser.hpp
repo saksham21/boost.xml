@@ -66,8 +66,8 @@ public:
 		if(!parser->parseFirst(filename.c_str(), token_))
 		{
 			std::cerr << "scanFirst() failed\n" << std::endl;
-      		XMLPlatformUtils::Terminate();
-      		return 1;
+			XMLPlatformUtils::Terminate();
+			return 1;
 		}
 	}
 	~parser() {}
