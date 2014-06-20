@@ -52,7 +52,7 @@ public:
 	XMLCh const *value() const { return h_.value(); }
 
 private:
-	handler h_;			// how to use this handler with our token_base();
+	handler& h_;
 };
 
 template <typename S>
@@ -60,9 +60,10 @@ class parser
 {
 public:
 	parser(std::string const &filename)
-		: token_(/* how to initialise this ?? */),
+		: token_(),
 		  status_(0),
-		  parser_(new SAXParser)
+		  parser_(),
+		  h_(type_(none), depth_(0))
 	{
 		if(!parser_->parseFirst(filename.c_str(), token_))
 		{
@@ -76,12 +77,13 @@ public:
 
   	token_base<S> get_token()
   	{
-  		token_base<S> token(token_);
+  		token_base<S> token(h_);
   		return token;
   	}
 
 private:
-	SAXParser* parser_ ;// how to implement this ???
+	SAXParser parser_;
+	handler& h_;
 	XMLPScanToken token_;
 	int status_;
 };
