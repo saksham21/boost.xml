@@ -1,86 +1,53 @@
-#ifndef handler_hpp_
-#define handler_hpp_
-
-#include <xercesc/sax/HandlerBase.hpp>
-#include <xercesc/util/XMLUniDefs.hpp>
-#include <xercesc/util/XMLUni.hpp>
-#include <xercesc/sax/AttributeList.hpp>
+#include <bits/stdc++.h>
+#include "handler.hpp"
 #include "convert.hpp"
+#include <xercesc/parsers/SAXParser.hpp>
 
-XERCES_CPP_NAMESPACE_USE
+using namespace std;
 
-enum token_type
+namespace boost
 {
-  none,
-  element,
-  attribute,
-  text,
-  cdata,
-  entity_reference,
-  type_entity,
-  processing_instruction,
-  comment,
-  document,
-  document_type,
-  document_fragment,
-  notation,
-  whitespace,
-  significant_whitespace,
-  end_element,
-  end_entity,
-  xml_declaration,
-};
-
-class handler : public HandlerBase
+namespace xml
 {
-public :
-  handler() : type_(none), depth_(0) {}
-  ~handler() {}
+namespace xerces
+{
+namespace reader
+{
 
-  int depth() const { return depth_;}
-  token_type type() const { return type_;}
-  XMLCh const *name() const { return name_;}
-  XMLCh const *value() const { return value_;}
+template <typename S> class parser;
 
-  void startElement(const XMLCh* const name, AttributeList& attributes)
-  {
-    type_ = element;
-    ++depth_;
-    name_ = name;
-  }
-  void endElement(const XMLCh* const name)
-  { 
-    --depth_;
-  }
-  void characters(const XMLCh* const chars, const XMLSize_t length)
-  {
-    type_ = text;
-    value_ = chars;
-    length_ = length;
-  }
-  void ignorableWhitespace(const XMLCh* const chars, const XMLSize_t length)
-  {
-    type_ = whitespace;
-    value_ = chars;
-    length_ = length;
-  }
-  void processingInstruction(const XMLCh *target, const XMLCh *data)
-  {
-    type_ = processing_instruction;
-    name_ = target;
-    value_ = data;
-  }
-  void resetDocument()
-  {
-  }
-  
+template <typename S>
+class token_base
+{
+	friend class parser<S>;
+public:
+	int depth() const { return h.depth(); }
+	token_type type() const { return h.type(); }
+	XMLCh const *name() const { return h.name(); }
+	XMLCh const *value() const { return h.value(); }
+
 private:
-  bool fSawErrors;
-  token_type type_;
-  int depth_;
-  XMLCh const *name_;
-  XMLCh const *value_;
-  XMLSize_t length_;
+	handler h;
 };
 
-#endif
+template <typename S>
+class parser
+{
+public:
+
+  	bool next() { status_ = parser->parseNext(token_); return status_ == 1;}
+  	token_base<S> get_token()
+  	{
+  		token_base<S> token();
+  		return token;
+  	}
+
+private:
+	SAXParser* parser = new SAXParser;
+	XMLPScanToken token_;
+	int status_;
+};
+}
+}
+}
+}
