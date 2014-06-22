@@ -9,6 +9,14 @@
 
 XERCES_CPP_NAMESPACE_USE
 
+namespace boost
+{
+namespace xml
+{
+namespace xerces
+{
+namespace reader
+{
 enum token_type
 {
   none,
@@ -78,5 +86,9 @@ private:
   XMLCh const *value_;
   XMLSize_t length_;
 };
+}
+}
+}
+}
 
 #endif

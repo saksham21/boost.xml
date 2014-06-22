@@ -2,6 +2,7 @@
 #include <xercesc/util/PlatformUtils.hpp>
 //#include <boost/xml/backends/xerces/reader/parser.hpp> // just for now....later will be using some macro so that it can work with boot/xml/reader.hpp
 #include "parser.hpp"
+#include "convert.hpp"
 
 using namespace std;
 using namespace boost::xml::xerces::reader;
