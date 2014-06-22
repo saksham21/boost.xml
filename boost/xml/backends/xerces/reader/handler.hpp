@@ -42,7 +42,7 @@ enum token_type
 class handler : public HandlerBase
 {
 public:
-  handler() : type_(none), depth_(0) {}
+  handler() : type_(none), depth_(0), name_(0), value_(0) {}
   ~handler() {}
 
   int depth() const { return depth_;}

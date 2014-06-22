@@ -22,7 +22,7 @@ class token_base
 	friend class parser<S>;
 public:
 	token_base()
-		: h_(depth(0) , type(none)) {}
+		: h_(depth(0) , type(none), name(0), value(0)) {}
 	~token_base() {}
 
 	int depth() const { return h_.depth(); }
