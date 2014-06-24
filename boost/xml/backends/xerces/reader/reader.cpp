@@ -25,7 +25,12 @@ int main(int , char **)
 		while(parser.next())
 		{
 			token_base<string> const &current = parser.get_token();
-			std::cout << current.depth() << ' ' << StrX(current.name()) << ' ' << '(' << current.type() << ')' << StrX(current.value()) << std::endl;
+			std::cout << current.depth() << ' ' << StrX(current.name()) << ' ' << '(' << current.type() << ')' << ' ' << StrX(current.value()) << std::endl;
+			if(std::cout.fail())
+			{
+				std::cout.clear();
+				std::cout << std::endl;
+			}
 		}
 	}
   	catch (const XMLException& toCatch)

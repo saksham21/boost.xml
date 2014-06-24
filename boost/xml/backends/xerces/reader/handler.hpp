@@ -78,6 +78,8 @@ public:
     name_ = target;
     value_ = data;
   }
+  void resetDocument()
+  {}
   
 private:
   token_type type_;
