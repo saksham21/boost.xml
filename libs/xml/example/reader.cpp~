@@ -23,6 +23,10 @@ int main(int, char **)
 		<< current.name() << " (" << current.type() << ')';
       if (current.has_value())
 	std::cout << "  \"" << current.value() << '"';
+/*      if(std::cout.fail())
+      {
+	std::cout.clear();
+      }		*/
       std::cout << std::endl;
     }
   }

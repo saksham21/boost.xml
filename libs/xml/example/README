@@ -1,14 +1,3 @@
-// Starts from here
-
-** Work done for GSOC 2014 **
-
-qstring.hpp : defines a converter class which basically converts libxml2::xmlChar* to qt::QString
-
-reader.cpp : example which proves that dom::xml::dom works fine for qt::QString as well.
-
-// End here
-
-
 dom
 ===
 
