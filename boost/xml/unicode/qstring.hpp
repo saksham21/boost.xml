@@ -13,14 +13,30 @@ namespace xml
 template <>
 struct converter<QString>
 {
-  static xmlChar const *in(QString const &buffer)
+#if USE_LIBXML2
+  typedef xmlChar char_type;
+#elif USE_XERCES
+  typedef XMLCh char_type;
+#endif
+
+  static char_type const *in(QString const &buffer)
   {
+  #if USE_LIBXML2
     QByteArray array=buffer.toLocal8Bit();
-    return reinterpret_cast<xmlChar const *>(array.data());
+    return reinterpret_cast<char_type const *>(array.data());
+  #elif USE_XERCES
+    XERCES_CPP_NAMESPACE_USE
+    return buffer.utf16();
+  #endif
   }
-  static QString out(xmlChar const *buffer)
+  static QString out(char_type const *buffer)
   {
-    return QString::fromLocal8Bit(reinterpret_cast<char const*>(buffer));
+  #if USE_LIBXML2
+    return buffer ? QString::fromLocal8Bit(reinterpret_cast<char const*>(buffer)) : QString("");
+  #elif USE_XERCES
+    XERCES_CPP_NAMESPACE_USE
+    return QString::fromUtf16(buffer);
+  #endif
   }
 };
 
