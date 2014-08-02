@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cassert>
 #include <dom/DOMDocument.hpp>
-#include "iterator.hpp"
+// #include "iterator.hpp"
 
 namespace boost
 {
