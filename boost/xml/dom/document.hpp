@@ -16,10 +16,10 @@ namespace xml
 namespace dom
 {
 
-template <typename S> void process_xinclude(document<S> &);
+template <typename S> void process_xinclude(document<S> &); //defined in xinclude.hpp
 
 template <typename S>
-class document : public detail::wrapper<xmlDoc*>
+class document : public detail::wrapper<xmlDoc*>  //check why and where this is used : detail::wrapper<>
 {
   friend std::auto_ptr<document<S> > detail::factory<S>(xmlDoc *);
   friend void process_xinclude<>(document<S> &);
@@ -30,7 +30,7 @@ public:
   std::string encoding() const;
   dtd_ptr<S> internal_subset() const;
   dtd_ptr<S> create_internal_subset(std::string const &name,
-				    std::string const &external_id,
+            std::string const &external_id,
 				    std::string const &system_id);
 
   node_ptr<element<S> const> root() const;

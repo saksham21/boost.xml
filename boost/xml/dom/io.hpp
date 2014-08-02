@@ -29,6 +29,7 @@ inline void write(document<S> const &document,
                   std::string const &encoding = std::string())
   throw(std::runtime_error)
 {
+  std::cout<<"hi\n";
   char const *enc = encoding.c_str();
   if (enc[0] == '\0') enc = 0;
   xmlSaveCtxt *ctx = xmlSaveToIO(detail::stream_write_callback,

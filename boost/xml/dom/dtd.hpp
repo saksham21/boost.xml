@@ -21,7 +21,7 @@ class dtd
   friend class dtd_ptr<S>;
 public:
   std::string name() const { return static_cast<char *>(impl_->name);}
-  std::string external_id() const { return static_cast<char *>(impl_->ExternalID);}
+  std::string external_id() const { return static_cast<char *>(impl_->ExternalID);}    // DOMNotation.hpp
   std::string system_id() const { return static_cast<char *>(impl_->SystemID);}
   
 private:
