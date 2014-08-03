@@ -1,7 +1,6 @@
 #ifndef boost_xml_dom_write_hpp_
 #define boost_xml_dom_write_hpp_
 
-#include <boost/xml/xerces/document.hpp>
 #include <streambuf>
 #include <iostream>
 // #include <libxml/xmlsave.h>
@@ -34,6 +33,8 @@ inline void write(document<S> const &document,
   std::cout<<"hi\n";
   char const *enc = encoding.c_str();
   if (enc[0] == '\0') enc = 0;
+  long bytes;
+  int status;
   // xmlSaveCtxt *ctx = xmlSaveToIO(detail::stream_write_callback,
   //                                detail::stream_close_callback,
   //                                sb, enc,  XML_SAVE_FORMAT);

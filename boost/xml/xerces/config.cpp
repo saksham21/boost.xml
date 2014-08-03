@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     // element_ptr root = document->create_root("config");
     // dtd_ptr doc_type = document->create_internal_subset("foo", "bar", "baz");
     std::ofstream ofs("config.xml");
-    write(*document, ofs.rdbuf(),0);
+    write(*document, ofs.rdbuf());
   }
   catch (std::exception const &e)
   {

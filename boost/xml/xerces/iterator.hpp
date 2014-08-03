@@ -64,11 +64,11 @@ namespace detail
 // template <typename N>
 // node_ptr<N> ptr_factory(xmlNode *n) { return N(n);}
 
-template <typename S>
-std::auto_ptr<document<S> > factory(DOMDocument *d)
-{
-  return std::auto_ptr<document<S> >(new document<S>(d));
-}
+// template <typename S>
+// std::auto_ptr<document<S> > factory(DOMDocument *d)
+// {
+//   return std::auto_ptr<document<S> >(new document<S>(d));
+// }
 
 } // namespace boost::xml::dom::detail
 
