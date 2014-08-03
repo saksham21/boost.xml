@@ -10,6 +10,8 @@ namespace boost
 {
 namespace xml
 {
+namespace xerces
+{
 namespace dom
 {
 // namespace detail
@@ -61,5 +63,6 @@ inline void write(document<S> const &document,
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+}
 
 #endif
