@@ -18,8 +18,8 @@ public:
 	document()
 	 : _dom_impl(NULL), _document(NULL)
 	{
-		_dom_impl = DOMImplementationRegistry::getDOMImplementation(
-             XMLString::transcode("core"));
+		_dom_impl = xercesc::DOMImplementationRegistry::getDOMImplementation(
+             xercesc::XMLString::transcode("core"));
 		std::cout<<"Saksham\n";
 	}
 	~document() {_document->release();}
