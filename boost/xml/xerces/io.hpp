@@ -3,7 +3,9 @@
 
 #include <streambuf>
 #include <iostream>
+// #include "document.hpp"
 // #include <libxml/xmlsave.h>
+#include <framework/StdOutFormatTarget.hpp>
 
 namespace boost
 {
@@ -30,7 +32,7 @@ inline void write(document<S> const &document,
                   std::string const &encoding = std::string())
   throw(std::runtime_error)
 {
-  std::cout<<"hi\n";
+  // std::cout<<"hi\n";
   char const *enc = encoding.c_str();
   if (enc[0] == '\0') enc = 0;
   long bytes;
@@ -42,7 +44,39 @@ inline void write(document<S> const &document,
   // int status = xmlSaveClose(ctx);
   if(bytes == -1 || status == -1)
     throw std::runtime_error("Failed to stream document.");
+  // std::cout<<"wassup\n";
 }
+/*template<typename S>
+inline void DoOutput2File(document<S> &doc)
+{
+    DOMImplementation    *pImplement        = NULL;
+    // DOMWriter            *pSerializer       = NULL;
+    DOMLSSerializer      *writer            = NULL;
+    // XMLFormatTarget      *pTarget           = NULL;
+    DOMLSOutput          *output     = NULL;
+    pImplement = DOMImplementationRegistry::getDOMImplementation(XMLString::transcode("LS"));
+    writer = ((DOMImplementationLS*)pImplement)->createLSSerializer();
+    output = ((DOMImplementationLS*)pImplement)->createLSOutput();
+    DOMConfiguration* dc = writer->getDomConfig();
+    dc->setParameter(XMLUni::fgDOMWRTFormatPrettyPrint, true);
+    // doc->setXmlVersion(XMLString::transcode("1.0") );
+    output->setEncoding(XMLString::transcode("UTF-8"));
+    // dc->setParameter(XMLUni::fgDOMErrorHandler,errorHandler);
+    // dc->setParameter(XMLUni::fgDOMWRTDiscardDefaultContent,true);
+    // pSerializer = ((DOMImplementationLS*)pImplement)->createDOMWriter();
+    // pSerializer->setFeature(XMLUni::fgDOMWRTFormatPrettyPrint, true);
+    // pTarget = new LocalFileFormatTarget(FullFilePath);      ???????????????????????                                    
+    // // pSerializer->writeNode(pTarget, pmyDOMDocument);
+    // std::wstring widestr = std::wstring(str.begin(), str.end());
+    // wchar_t* FullFilePath = widestr.c_str();
+    // pTarget = new LocalFileFormatTarget(FullFilePath);
+    StdOutFormatTarget* target = new StdOutFormatTarget();
+    output->setByteStream(target);
+    xercesc::DOMDocument* doc1;
+    writer->write(doc1, output);
+    delete target;
+    output->release();
+} */
 
 // template <typename S>
 // inline void write_to_file(document<S> const &document,

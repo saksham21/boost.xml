@@ -5,11 +5,11 @@
 
 #include "string.hpp"
 #include <fstream>
-#include <bits/stdc++.h>
-// #include "document.hpp"
+#include "io.hpp"
 #include <util/PlatformUtils.hpp>
 
 namespace dom = boost::xml::xerces::dom;
+using namespace xercesc;
 
 int main(int argc, char **argv)
 {
@@ -18,12 +18,14 @@ int main(int argc, char **argv)
     XERCES_CPP_NAMESPACE_USE
     XMLPlatformUtils::Initialize();
     dom::document<S> doc;
+    doc.create_document("config");
+    doc.set_version();
     // document_ptr document(new dom::document<S>());
     // element_ptr root = document->create_root("config");
     // dtd_ptr doc_type = document->create_internal_subset("foo", "bar", "baz");
-    std::ofstream ofs("config.xml");
+    // std::ofstream ofs("config.xml");
+    doc.DoOutput2File();
     XMLPlatformUtils::Terminate();
-    // write(*document, ofs.rdbuf());
   }
   catch (std::exception const &e)
   {

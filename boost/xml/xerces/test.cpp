@@ -3,6 +3,7 @@
 #include <util/PlatformUtils.hpp>
 
 using namespace std;
+using namespace xercesc;
 
 int main(int , char**)
 {
@@ -31,7 +32,7 @@ int main(int , char**)
          object... in fact, it is. It's defined
     by the 'DOMNode' class.
     */
-    p_DOMDocument = p_DOMImplementation->createDocument(0, L"Hello_World", 0);
+    p_DOMDocument = p_DOMImplementation->createDocument(XMLPlatformUtils::fgMemoryManager );
 
     /*
     The output of the code above will produce the following:

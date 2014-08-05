@@ -30,7 +30,7 @@ typedef Glib::ustring S;
 // typedef boost::xml::dom::node_ptr<boost::xml::dom::comment<S> const> const_comment_ptr;
 // typedef boost::xml::dom::node_ptr<boost::xml::dom::cdata<S> > cdata_ptr;
 // typedef boost::xml::dom::node_ptr<boost::xml::dom::cdata<S> const> const_cdata_ptr;
-typedef std::auto_ptr<boost::xml::xerces::dom::document<S> > document_ptr;
+// typedef std::auto_ptr<boost::xml::xerces::dom::document<S> > document_ptr;
 // typedef boost::xml::dom::dtd_ptr<S> dtd_ptr;
 // typedef boost::xml::dom::node_set<S> node_set;
 // typedef boost::xml::dom::xpath<S> xpath;
