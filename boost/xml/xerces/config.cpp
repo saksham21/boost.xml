@@ -5,7 +5,7 @@
 
 #include "string.hpp"
 #include <fstream>
-#include "io.hpp"
+// #include "io.hpp"
 #include <util/PlatformUtils.hpp>
 
 namespace dom = boost::xml::xerces::dom;
@@ -18,7 +18,8 @@ int main(int argc, char **argv)
     XERCES_CPP_NAMESPACE_USE
     XMLPlatformUtils::Initialize();
     dom::document<S> doc;
-    doc.create_document("config");
+    doc.create_internal_subset("foo", "bar", "baz");
+    doc.create_root("config");
     doc.set_version();
     // document_ptr document(new dom::document<S>());
     // element_ptr root = document->create_root("config");
