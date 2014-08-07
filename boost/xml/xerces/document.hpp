@@ -4,7 +4,7 @@
 #include <cassert>
 #include <iostream>
 #include <dom/DOM.hpp>
-// #include "iterator.hpp"
+// #include "dtd.hpp"
 #include <framework/StdOutFormatTarget.hpp>
 using namespace xercesc;
 
@@ -32,9 +32,20 @@ public:
 		// std::cout<<"Saksham\n";
 	}
 
-	void create_root(const char* a)
+	// dtd_ptr<S> create_internal_subset(const char* name,
+ //            const char* external_id,
+	// 		const char* system_id)
+	// {
+	// 	_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),
+ //  							XMLString::transcode("bar"),
+ //  							XMLString::transcode("baz"));
+	// 	return dtd<S>(_doctype);
+	// }
+
+	DOMElement* create_root(const char* root_name)
 	{
-		_document = _dom_impl->createDocument(0, XMLString::transcode(a), _doctype , XMLPlatformUtils::fgMemoryManager );
+		_document = _dom_impl->createDocument(0, XMLString::transcode(root_name), _doctype , XMLPlatformUtils::fgMemoryManager );
+		return _document->getDocumentElement();
 	}
 
 	void set_version()
@@ -60,9 +71,10 @@ public:
     	output->release();
 	}
 
-	void create_internal_subset(const char* nameId, const char* pubId, const char* sysId)
+	DOMDocumentType* create_internal_subset(const char* nameId, const char* pubId, const char* sysId)
 	{
 		_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),XMLString::transcode("bar"),XMLString::transcode("baz"));
+		return _doctype;
 	// 	std::cout<<"hi1\n";
 	// 	DOMDocumentType* dtd_node = _dom_impl->createDocumentType(XMLString::transcode("foo"),XMLString::transcode("bar"),XMLString::transcode("baz"));
 	// 	std::cout<<"hi2\n";
@@ -83,6 +95,19 @@ private:
 	DOMDocument* _document;
 	DOMDocumentType* _doctype;
 };
+
+
+// template <typename S>
+// inline dtd_ptr<S>
+// document<S>::create_internal_subset(std::string const &name,
+// 			std::string const &external_id,
+// 			std::string const &system_id)
+// {
+//   xmlDtd *d = _dom_impl->createDocumentType(XMLString::transcode("foo"),
+//   							XMLString::transcode("bar"),
+//   							XMLString::transcode("baz"));
+//   return dtd<S>(d);
+// }
 
 }
 }
