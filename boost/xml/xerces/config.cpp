@@ -17,8 +17,9 @@ int main(int argc, char **argv)
   {
     XERCES_CPP_NAMESPACE_USE
     XMLPlatformUtils::Initialize();
-    dom::document<S> doc;
-    DOMDocumentType* doc_type=doc.create_internal_subset("foo", "bar", "baz");
+    document_ptr doc;
+    // dom::document<S> doc;
+    dtd_ptr doc_type=doc.create_internal_subset("foo", "bar", "baz");
     DOMElement* root=doc.create_root("config");
     doc.set_version();
     // document_ptr document(new dom::document<S>());

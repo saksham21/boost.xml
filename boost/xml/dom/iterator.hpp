@@ -3,6 +3,7 @@
 
 #include <libxml/tree.h>
 #include <memory>
+#include "document.hpp"
 
 namespace boost
 {

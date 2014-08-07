@@ -4,7 +4,8 @@
 #include <cassert>
 #include <iostream>
 #include <dom/DOM.hpp>
-// #include "dtd.hpp"
+#include "dtd.hpp"
+// #include "iterator.hpp"
 #include <framework/StdOutFormatTarget.hpp>
 using namespace xercesc;
 
@@ -20,9 +21,10 @@ namespace dom
 template <typename S>
 class document
 {
+	// friend std::auto_ptr<document<S> > detail::factory<S>(DOMDocument*);
 public:
 	document()
-	 : _dom_impl(NULL), _document(NULL), _doctype(NULL)
+	 : _dom_impl(NULL), _doctype(NULL), _document(NULL)
 	{
 		_dom_impl = DOMImplementationRegistry::getDOMImplementation(
              XMLString::transcode("core") );
@@ -32,15 +34,15 @@ public:
 		// std::cout<<"Saksham\n";
 	}
 
-	// dtd_ptr<S> create_internal_subset(const char* name,
- //            const char* external_id,
-	// 		const char* system_id)
-	// {
-	// 	_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),
- //  							XMLString::transcode("bar"),
- //  							XMLString::transcode("baz"));
-	// 	return dtd<S>(_doctype);
-	// }
+	dtd_ptr<S> create_internal_subset(const char* name,
+            const char* external_id,
+			const char* system_id)
+	{
+		_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),
+  							XMLString::transcode("bar"),
+  							XMLString::transcode("baz"));
+		return dtd<S>(_doctype);
+	}
 
 	DOMElement* create_root(const char* root_name)
 	{
@@ -71,7 +73,7 @@ public:
     	output->release();
 	}
 
-	DOMDocumentType* create_internal_subset(const char* nameId, const char* pubId, const char* sysId)
+	/*DOMDocumentType* create_internal_subset(const char* nameId, const char* pubId, const char* sysId)
 	{
 		_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),XMLString::transcode("bar"),XMLString::transcode("baz"));
 		return _doctype;
@@ -86,7 +88,7 @@ public:
 	// 	XMLCh* fPublicId = docImpl->cloneString(pubId);
 	// 	XMLCh* fSystemId = docImpl->cloneString(sysId);
 	// 	XMLCh* fName = ((DOMDocumentImpl *)_document)->getPooledString(nameId);
-	}
+	}	*/
 
 	~document() { _document->release(); }
 
