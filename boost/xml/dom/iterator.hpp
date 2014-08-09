@@ -3,7 +3,6 @@
 
 #include <libxml/tree.h>
 #include <memory>
-#include "document.hpp"
 
 namespace boost
 {
@@ -53,6 +52,8 @@ protected:
 private:
   T impl_;
 };
+
+// template<typename N> node_ptr;
 
 template <typename T>
 T impl_cast(wrapper<T> *w) { return w->impl();}

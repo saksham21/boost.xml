@@ -4,6 +4,8 @@
 #include <dom/DOM.hpp>
 #include <string>
 
+XERCES_CPP_NAMESPACE_USE
+
 namespace boost
 {
 namespace xml
@@ -22,9 +24,9 @@ class dtd
   friend class document<S>;
   friend class dtd_ptr<S>;
 public:
-  const char* name() const { return static_cast<char *>(impl_->getName());}
-  const char* external_id() const { return static_cast<char *>(impl_->getPublicId());}    // DOMNotation.hpp
-  const char* system_id() const { return static_cast<char *>(impl_->getSystemId());}
+  const char* name() const { return XMLString::transcode(impl_->getName());}
+  const char* external_id() const { return XMLString::transcode(impl_->getPublicId());}    // DOMNotation.hpp
+  const char* system_id() const { return XMLString::transcode(impl_->getSystemId());}
   
 private:
   dtd(DOMDocumentType *dtd) : impl_(dtd) {}

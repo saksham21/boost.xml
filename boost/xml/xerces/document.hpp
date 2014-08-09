@@ -5,9 +5,10 @@
 #include <iostream>
 #include <dom/DOM.hpp>
 #include "dtd.hpp"
-// #include "iterator.hpp"
+#include "element.hpp"
 #include <framework/StdOutFormatTarget.hpp>
-using namespace xercesc;
+
+XERCES_CPP_NAMESPACE_USE
 
 namespace boost
 {
@@ -19,12 +20,12 @@ namespace dom
 {
 
 template <typename S>
-class document
+class document : public detail::wrapper<DOMDocument*>
 {
-	// friend std::auto_ptr<document<S> > detail::factory<S>(DOMDocument*);
+	friend std::auto_ptr<document<S> > detail::factory<S>(DOMDocument*);
 public:
 	document()
-	 : _dom_impl(NULL), _doctype(NULL), _document(NULL)
+	 : detail::wrapper<DOMDocument*>(_document)
 	{
 		_dom_impl = DOMImplementationRegistry::getDOMImplementation(
              XMLString::transcode("core") );
@@ -38,16 +39,18 @@ public:
             const char* external_id,
 			const char* system_id)
 	{
-		_doctype = _dom_impl->createDocumentType(XMLString::transcode("foo"),
-  							XMLString::transcode("bar"),
-  							XMLString::transcode("baz"));
+		_doctype = _dom_impl->createDocumentType(XMLString::transcode(name),
+  							XMLString::transcode(external_id),
+  							XMLString::transcode(system_id));
 		return dtd<S>(_doctype);
 	}
 
-	DOMElement* create_root(const char* root_name)
+	node_ptr<element<S> > create_root(const char* root_name)
 	{
 		_document = _dom_impl->createDocument(0, XMLString::transcode(root_name), _doctype , XMLPlatformUtils::fgMemoryManager );
-		return _document->getDocumentElement();
+		DOMElement* _element = _document->getDocumentElement();
+		DOMNode* _node = dynamic_cast<DOMNode*>(_element);
+		return element<S>(_node);
 	}
 
 	void set_version()
@@ -94,8 +97,10 @@ public:
 
 private:
 	DOMImplementation* _dom_impl;
-	DOMDocument* _document;
+	document(DOMDocument *doc) : detail::wrapper<DOMDocument*>(doc) {}
 	DOMDocumentType* _doctype;
+	DOMDocument* _document;
+
 };
 
 

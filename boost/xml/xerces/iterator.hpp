@@ -1,6 +1,8 @@
 #include <dom/DOM.hpp>
 #include <memory>
 
+XERCES_CPP_NAMESPACE_USE
+
 namespace boost
 {
 namespace xml
@@ -57,14 +59,14 @@ T impl_cast(wrapper<T> *w) { return w->impl();}
 template <typename T>
 T impl_cast(wrapper<T> const *w) { return w->impl();}
 
-// template <typename N>
-// node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+template <typename N>
+node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
 
-// template <typename S>
-// std::auto_ptr<document<S> > factory(DOMDocument *d)
-// {
-//   return std::auto_ptr<document<S> >(new document<S>(d));
-// }
+template <typename S>
+std::auto_ptr<document<S> > factory(DOMDocument *d)
+{
+  return std::auto_ptr<document<S> >(new document<S>(d));
+}
 
 } // namespace boost::xml::dom::detail
 
