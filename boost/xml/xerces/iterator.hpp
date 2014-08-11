@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_iterator_hpp_
+#define boost_xml_xerces_dom_iterator_hpp_
+
 #include <dom/DOM.hpp>
 #include <memory>
 
@@ -98,3 +101,5 @@ private:
 }
 }
 }
+
+#endif

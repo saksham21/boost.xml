@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_cdata_hpp_
+#define boost_xml_xerces_dom_cdata_hpp_
+
 #include "node.hpp"
 
 namespace boost
@@ -24,3 +27,5 @@ public:
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+
+#endif

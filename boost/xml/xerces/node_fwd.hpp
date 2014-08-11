@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_nodefwd_hpp_
+#define boost_xml_xerces_dom_nodefwd_hpp_
+
 namespace boost
 {
 namespace xml
@@ -26,3 +29,5 @@ template <typename S> class document;
 } // namespace boost::xml
 }
 }
+
+#endif

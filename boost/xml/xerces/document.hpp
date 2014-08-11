@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_document_hpp_
+#define boost_xml_xerces_dom_document_hpp_
+
 #include <string>
 #include <memory>
 #include <stdexcept>
@@ -120,3 +123,5 @@ private:
 }
 }
 }
+
+#endif

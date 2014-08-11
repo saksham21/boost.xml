@@ -1,0 +1,22 @@
+In file included from document.hpp:11:0,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+element.hpp:56:27: error: ‘boost::xml::xerces::dom::element<S>::const_attribute_iterator boost::xml::xerces::dom::element<S>::end_attributes()’ cannot be overloaded
+  const_attribute_iterator end_attributes()
+                           ^
+element.hpp:52:21: error: with ‘boost::xml::xerces::dom::element<S>::attribute_iterator boost::xml::xerces::dom::element<S>::end_attributes()’
+  attribute_iterator end_attributes()
+                     ^
+element.hpp:63:23: error: ‘boost::xml::xerces::dom::element<S>::const_child_iterator boost::xml::xerces::dom::element<S>::begin_children()’ cannot be overloaded
+  const_child_iterator begin_children()
+                       ^
+element.hpp:61:17: error: with ‘boost::xml::xerces::dom::element<S>::child_iterator boost::xml::xerces::dom::element<S>::begin_children()’
+  child_iterator begin_children()
+                 ^
+element.hpp:67:23: error: ‘boost::xml::xerces::dom::element<S>::const_child_iterator boost::xml::xerces::dom::element<S>::end_children()’ cannot be overloaded
+  const_child_iterator end_children()
+                       ^
+element.hpp:65:17: error: with ‘boost::xml::xerces::dom::element<S>::child_iterator boost::xml::xerces::dom::element<S>::end_children()’
+  child_iterator end_children()
+                 ^

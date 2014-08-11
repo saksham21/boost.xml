@@ -1,5 +1,5 @@
-#ifndef boost_xml_dom_dtd_hpp_
-#define boost_xml_dom_dtd_hpp_
+#ifndef boost_xml_xerces_dom_dtd_hpp_
+#define boost_xml_xerces_dom_dtd_hpp_
 
 #include <dom/DOM.hpp>
 #include <string>

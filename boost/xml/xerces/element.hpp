@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_element_hpp_
+#define boost_xml_xerces_dom_element_hpp_
+
 #include "node.hpp"
 #include "attribute.hpp"
 #include "text.hpp"
@@ -99,3 +102,5 @@ inline node_ptr<dom::attribute<S> > element<S>::attribute(S const &name)
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+
+#endif

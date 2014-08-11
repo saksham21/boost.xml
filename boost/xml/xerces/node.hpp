@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_node_hpp_
+#define boost_xml_xerces_dom_node_hpp_
+
 #include "node_fwd.hpp"
 #include "iterator.hpp"
 #include <stdexcept>
@@ -135,3 +138,5 @@ char const *node<S>::names[7] =
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+
+#endif

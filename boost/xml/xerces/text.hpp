@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_text_hpp_
+#define boost_xml_xerces_dom_text_hpp_
+
 #include "node.hpp"
 
 namespace boost
@@ -24,7 +27,7 @@ public:
 };
 
 template <typename S>
-S text<S>::content() const
+inline S text<S>::content() const
 {
   XMLCh *content = this->impl()->getNodeValue();
   S retn = converter<S>::out(content);
@@ -33,7 +36,7 @@ S text<S>::content() const
 }
 
 template <typename S>
-void text<S>::set_content(S const &content)
+inline void text<S>::set_content(S const &content)
 {
 	this->impl()->setNodeValue(converter<S>::in(content));
 }
@@ -41,3 +44,5 @@ void text<S>::set_content(S const &content)
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+
+#endif

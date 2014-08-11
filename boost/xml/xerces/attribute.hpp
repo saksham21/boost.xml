@@ -1,3 +1,6 @@
+#ifndef boost_xml_xerces_dom_attribute_hpp_
+#define boost_xml_xerces_dom_attribute_hpp_
+
 #include "node.hpp"
 
 XERCES_CPP_NAMESPACE_USE
@@ -28,7 +31,7 @@ private:
 };
 
 template <typename S>
-S attribute<S>::name() const
+inline S attribute<S>::name() const
 {
   XMLCh *value = this->impl()->getNodeName();
   S retn = converter<S>::out(value);
@@ -37,7 +40,7 @@ S attribute<S>::name() const
 }
 
 template <typename S>
-S attribute<S>::value() const
+inline S attribute<S>::value() const
 {
   XMLCh *value = this->impl()->getNodeValue();
   S retn = converter<S>::out(value);
@@ -46,7 +49,7 @@ S attribute<S>::value() const
 }
 
 template <typename S>
-void attribute<S>::set_value(S const &value)
+inline void attribute<S>::set_value(S const &value)
 {
   this->impl()->setNodeValue(converter<S>::in(value));
 }
@@ -55,3 +58,5 @@ void attribute<S>::set_value(S const &value)
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost
+
+#endif

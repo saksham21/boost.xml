@@ -1,5 +1,5 @@
-#ifndef string_hpp_
-#define string_hpp_
+#ifndef boost_xml_xerces_dom_string_hpp_
+#define boost_xml_xerces_dom_string_hpp_
 
 
 #include "dom.hpp"
