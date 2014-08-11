@@ -70,29 +70,29 @@ std::auto_ptr<document<S> > factory(DOMDocument *d)
 
 } // namespace boost::xml::dom::detail
 
-// template <typename N>
-// class iterator : public detail::wrapper<DOMNode*>
-// {
-// public:
-//   typedef iterator<N> self;
-//   typedef node_ptr<N> value_type;
-//   typedef value_type &reference;
-//   typedef value_type *pointer;
+template <typename N>
+class iterator : public detail::wrapper<DOMNode*>
+{
+public:
+  typedef iterator<N> self;
+  typedef node_ptr<N> value_type;
+  typedef value_type &reference;
+  typedef value_type *pointer;
 
-//   iterator(DOMNode *current = 0) : detail::wrapper<DOMNode*>(current) {}
-//   bool operator == (self i) { return impl() == impl(i);}
-//   bool operator != (self i) { return !operator==(i);}
-//   value_type operator *() { return detail::ptr_factory<N>(impl());}
-//   pointer operator ->() { return &(operator *());}
-//   self operator ++(int) { increment(); return *this;}
-//   self operator ++() { self tmp = *this; increment(); return tmp;}
-//   self operator --(int) { decrement(); return *this;}
-//   self operator --() { self tmp = *this; decrement(); return tmp;}
+  iterator(DOMNode *current = 0) : detail::wrapper<DOMNode*>(current) {}
+  bool operator == (self i) { return impl() == impl(i);}
+  bool operator != (self i) { return !operator==(i);}
+  value_type operator *() { return detail::ptr_factory<N>(impl());}
+  pointer operator ->() { return &(operator *());}
+  self operator ++(int) { increment(); return *this;}
+  self operator ++() { self tmp = *this; increment(); return tmp;}
+  self operator --(int) { decrement(); return *this;}
+  self operator --() { self tmp = *this; decrement(); return tmp;}
 
-// private:
-//   void increment() { impl() = impl()->next;}
-//   void decrement() { impl() = impl()->prev;}
-// };
+private:
+  void increment() { impl() = impl()->getNextSibling();}
+  void decrement() { impl() = impl()->getPreviousSibling();}
+};
 
 }
 }

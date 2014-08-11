@@ -59,9 +59,9 @@ class node : public detail::wrapper<DOMNode*>
 public:
   bool operator== (node<S> const &n) {return impl() == impl(n);}
 
- /* node_type type() const { return types[this->impl()->type];}
+  // node_type type() const { return types[this->impl()->getNodeType()];}
   //. Return the node's name.
-  S name() const { return converter<S>::out(this->impl()->name);}
+ /* S name() const { return converter<S>::out(this->impl()->name);}
   //. Return the node's path within its document.
   S path() const;
   //. Return the node's active base (See XBase).
@@ -71,9 +71,9 @@ public:
 
   //. Return the parent node, if any.
   node_ptr<element<S> const> parent() const 
-  { return detail::ptr_factory<element<S> >(this->impl()->parent);}
+  { return detail::ptr_factory<element<S> >(this->impl()->getParentNode());}
   node_ptr<element<S> > parent() 
-  { return detail::ptr_factory<element<S> >(this->impl()->parent);}           // ...... work later here
+  { return detail::ptr_factory<element<S> >(this->impl()->getParentNode());}
 
 
 protected:

@@ -1,0 +1,1112 @@
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: redefinition of ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’ previously declared here
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: redefinition of ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’ previously declared here
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from attribute.hpp:1,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: redefinition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: previous definition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from attribute.hpp:1:0,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: multiple definition of ‘enum boost::xml::xerces::dom::node_type’
+ enum node_type
+      ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: previous definition here
+ enum node_type
+      ^
+In file included from attribute.hpp:1:0,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: redefinition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: previous definition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from attribute.hpp:1:0,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: redefinition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: previous definition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from attribute.hpp:1:0,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:34: error: redefinition of ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’
+ node_type const node<S>::types[22] =
+                                  ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:17: error: ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’ previously declared here
+ node_type const node<S>::types[22] =
+                 ^
+In file included from attribute.hpp:1:0,
+                 from element.hpp:2,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:29: error: redefinition of ‘const char* boost::xml::xerces::dom::node<S>::names [7]’
+ char const *node<S>::names[7] =
+                             ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:13: error: ‘const char* boost::xml::xerces::dom::node<S>::names [7]’ previously declared here
+ char const *node<S>::names[7] =
+             ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: redefinition of ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’ previously declared here
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: redefinition of ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’ previously declared here
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from text.hpp:1,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: redefinition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: previous definition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from text.hpp:1:0,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: multiple definition of ‘enum boost::xml::xerces::dom::node_type’
+ enum node_type
+      ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: previous definition here
+ enum node_type
+      ^
+In file included from text.hpp:1:0,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: redefinition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: previous definition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from text.hpp:1:0,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: redefinition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: previous definition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from text.hpp:1:0,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:34: error: redefinition of ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’
+ node_type const node<S>::types[22] =
+                                  ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:17: error: ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’ previously declared here
+ node_type const node<S>::types[22] =
+                 ^
+In file included from text.hpp:1:0,
+                 from element.hpp:3,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:29: error: redefinition of ‘const char* boost::xml::xerces::dom::node<S>::names [7]’
+ char const *node<S>::names[7] =
+                             ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:13: error: ‘const char* boost::xml::xerces::dom::node<S>::names [7]’ previously declared here
+ char const *node<S>::names[7] =
+             ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: redefinition of ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’ previously declared here
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: redefinition of ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’ previously declared here
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from comment.hpp:1,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: redefinition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: previous definition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from comment.hpp:1:0,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: multiple definition of ‘enum boost::xml::xerces::dom::node_type’
+ enum node_type
+      ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: previous definition here
+ enum node_type
+      ^
+In file included from comment.hpp:1:0,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: redefinition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: previous definition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from comment.hpp:1:0,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: redefinition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: previous definition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from comment.hpp:1:0,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:34: error: redefinition of ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’
+ node_type const node<S>::types[22] =
+                                  ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:17: error: ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’ previously declared here
+ node_type const node<S>::types[22] =
+                 ^
+In file included from comment.hpp:1:0,
+                 from element.hpp:4,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:29: error: redefinition of ‘const char* boost::xml::xerces::dom::node<S>::names [7]’
+ char const *node<S>::names[7] =
+                             ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:13: error: ‘const char* boost::xml::xerces::dom::node<S>::names [7]’ previously declared here
+ char const *node<S>::names[7] =
+             ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: redefinition of ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’ previously declared here
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: redefinition of ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’ previously declared here
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from pi.hpp:1,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: redefinition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: previous definition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from pi.hpp:1:0,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: multiple definition of ‘enum boost::xml::xerces::dom::node_type’
+ enum node_type
+      ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: previous definition here
+ enum node_type
+      ^
+In file included from pi.hpp:1:0,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: redefinition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: previous definition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from pi.hpp:1:0,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: redefinition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: previous definition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from pi.hpp:1:0,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:34: error: redefinition of ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’
+ node_type const node<S>::types[22] =
+                                  ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:17: error: ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’ previously declared here
+ node_type const node<S>::types[22] =
+                 ^
+In file included from pi.hpp:1:0,
+                 from element.hpp:5,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:29: error: redefinition of ‘const char* boost::xml::xerces::dom::node<S>::names [7]’
+ char const *node<S>::names[7] =
+                             ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:13: error: ‘const char* boost::xml::xerces::dom::node<S>::names [7]’ previously declared here
+ char const *node<S>::names[7] =
+             ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:22:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::accessor’
+ class accessor
+       ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: redefinition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:35:7: error: previous definition of ‘class boost::xml::xerces::dom::detail::wrapper<T>’
+ class wrapper : public accessor
+       ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:58:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: redefinition of ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:60:3: error: ‘template<class T> T boost::xml::xerces::dom::detail::impl_cast(const boost::xml::xerces::dom::detail::wrapper<T>*)’ previously declared here
+ T impl_cast(wrapper<T> const *w) { return w->impl();}
+   ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: redefinition of ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:63:13: error: ‘template<class N> boost::xml::xerces::dom::node_ptr<N> boost::xml::xerces::dom::detail::ptr_factory(xercesc_3_1::DOMNode*)’ previously declared here
+ node_ptr<N> ptr_factory(DOMNode *n) { return N(n);}
+             ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: redefinition of ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:66:29: error: ‘template<class S> std::auto_ptr<boost::xml::xerces::dom::document<S> > boost::xml::xerces::dom::detail::factory(xercesc_3_1::DOMDocument*)’ previously declared here
+ std::auto_ptr<document<S> > factory(DOMDocument *d)
+                             ^
+In file included from node.hpp:2:0,
+                 from cdata.hpp:1,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: redefinition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from node.hpp:2:0,
+                 from element.hpp:1,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+iterator.hpp:74:7: error: previous definition of ‘class boost::xml::xerces::dom::iterator<N>’
+ class iterator : public detail::wrapper<DOMNode*>
+       ^
+In file included from cdata.hpp:1:0,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: multiple definition of ‘enum boost::xml::xerces::dom::node_type’
+ enum node_type
+      ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:16:6: error: previous definition here
+ enum node_type
+      ^
+In file included from cdata.hpp:1:0,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: redefinition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:28:7: error: previous definition of ‘class boost::xml::xerces::dom::node_ptr<N>’
+ class node_ptr
+       ^
+In file included from cdata.hpp:1:0,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: redefinition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:49:7: error: previous definition of ‘class boost::xml::xerces::dom::node<S>’
+ class node : public detail::wrapper<DOMNode*>
+       ^
+In file included from cdata.hpp:1:0,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:34: error: redefinition of ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’
+ node_type const node<S>::types[22] =
+                                  ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:96:17: error: ‘const boost::xml::xerces::dom::node_type boost::xml::xerces::dom::node<S>::types [22]’ previously declared here
+ node_type const node<S>::types[22] =
+                 ^
+In file included from cdata.hpp:1:0,
+                 from element.hpp:6,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:29: error: redefinition of ‘const char* boost::xml::xerces::dom::node<S>::names [7]’
+ char const *node<S>::names[7] =
+                             ^
+In file included from element.hpp:1:0,
+                 from document.hpp:8,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+node.hpp:123:13: error: ‘const char* boost::xml::xerces::dom::node<S>::names [7]’ previously declared here
+ char const *node<S>::names[7] =
+             ^
+In file included from document.hpp:8:0,
+                 from dom.hpp:1,
+                 from string.hpp:5,
+                 from config.cpp:6:
+element.hpp:53:27: error: ‘boost::xml::xerces::dom::element<S>::const_attribute_iterator boost::xml::xerces::dom::element<S>::end_attributes()’ cannot be overloaded
+  const_attribute_iterator end_attributes()
+                           ^
+element.hpp:49:21: error: with ‘boost::xml::xerces::dom::element<S>::attribute_iterator boost::xml::xerces::dom::element<S>::end_attributes()’
+  attribute_iterator end_attributes()
+                     ^
+element.hpp:60:23: error: ‘boost::xml::xerces::dom::element<S>::const_child_iterator boost::xml::xerces::dom::element<S>::begin_children()’ cannot be overloaded
+  const_child_iterator begin_children()
+                       ^
+element.hpp:58:17: error: with ‘boost::xml::xerces::dom::element<S>::child_iterator boost::xml::xerces::dom::element<S>::begin_children()’
+  child_iterator begin_children()
+                 ^
+element.hpp:64:23: error: ‘boost::xml::xerces::dom::element<S>::const_child_iterator boost::xml::xerces::dom::element<S>::end_children()’ cannot be overloaded
+  const_child_iterator end_children()
+                       ^
+element.hpp:62:17: error: with ‘boost::xml::xerces::dom::element<S>::child_iterator boost::xml::xerces::dom::element<S>::end_children()’
+  child_iterator end_children()
+                 ^

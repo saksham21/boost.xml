@@ -58,7 +58,7 @@ public:
 		_document->setXmlVersion(XMLString::transcode("1.0") );
 	}
 
-	void DoOutput2File()
+	void write()
 	{
   		DOMImplementation *pImplement = NULL;
   		DOMLSSerializer *writer = NULL;

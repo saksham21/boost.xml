@@ -20,16 +20,17 @@ int main(int argc, char **argv)
     // dom::document<S> doc;
     dtd_ptr doc_type=doc->create_internal_subset("foo", "bar", "baz");
     element_ptr root=doc->create_root("config");
-    doc->set_version();
+    // doc->set_version();
     // document_ptr document(new dom::document<S>());
     // element_ptr root = document->create_root("config");
     // dtd_ptr doc_type = document->create_internal_subset("foo", "bar", "baz");
     // std::ofstream ofs("config.xml");
-    doc->DoOutput2File();
-    XMLPlatformUtils::Terminate();
+    doc->write();
+    // XMLPlatformUtils::Terminate();
   }
   catch (std::exception const &e)
   {
     std::cerr << "Error : " << e.what() << std::endl;
   }
+  return 0;
 }
