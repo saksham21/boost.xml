@@ -53,18 +53,18 @@ public:
 	{
 		return attribute_iterator();
 	}
-	const_attribute_iterator end_attributes()
+	const_attribute_iterator end_attributes() const
 	{
 		return const_attribute_iterator();
 	}
 
 	child_iterator begin_children()
 	{ return child_iterator(this->impl()->getNextSibling());}
-	const_child_iterator begin_children()
+	const_child_iterator begin_children() const
 	{ return const_child_iterator(this->impl()->getNextSibling());}
 	child_iterator end_children()
 	{ return child_iterator();}
-	const_child_iterator end_children()
+	const_child_iterator end_children() const
 	{ return const_child_iterator();}
 
 protected:

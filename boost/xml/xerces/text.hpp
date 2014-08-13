@@ -29,10 +29,11 @@ public:
 template <typename S>
 inline S text<S>::content() const
 {
-  XMLCh *content = this->impl()->getNodeValue();
-  S retn = converter<S>::out(content);
-  XMLString::release(&content);
-  return retn;
+	return converter<S>::out(this->impl()->getNodeValue());
+  // XMLCh *content = this->impl()->getNodeValue();
+  // S retn = converter<S>::out(content);
+  // XMLString::release(&content);
+  // return retn;
 }
 
 template <typename S>

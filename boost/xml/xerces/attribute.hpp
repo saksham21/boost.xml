@@ -22,7 +22,7 @@ class attribute : public node<S>
   friend node_ptr<attribute<S> > detail::ptr_factory<attribute<S> >(DOMNode *);
   friend class element<S>;
 public:
-  S name() const ;
+  S name() const;
   S value() const;
   void set_value(S const &);
 
@@ -33,19 +33,21 @@ private:
 template <typename S>
 inline S attribute<S>::name() const
 {
-  XMLCh *value = this->impl()->getNodeName();
-  S retn = converter<S>::out(value);
-  XMLString::release(&value);
-  return retn;
+  return converter<S>::out(this->impl()->getNodeName());
+  // XMLCh *value = this->impl()->getNodeName();
+  // S retn = converter<S>::out(value);
+  // XMLString::release(&value);
+  // return retn;
 }
 
 template <typename S>
 inline S attribute<S>::value() const
 {
-  XMLCh *value = this->impl()->getNodeValue();
-  S retn = converter<S>::out(value);
-  XMLString::release(&value);
-  return retn;
+  return converter<S>::out(this->impl()->getNodeValue());
+  // XMLCh *value = this->impl()->getNodeValue();
+  // S retn = converter<S>::out(value);
+  // XMLString::release(&value);
+  // return retn;
 }
 
 template <typename S>

@@ -62,15 +62,19 @@ class node : public detail::wrapper<DOMNode*>
 public:
   bool operator== (node<S> const &n) {return impl() == impl(n);}
 
-  // node_type type() const { return types[this->impl()->getNodeType()];}
+  node_type type() const;
   //. Return the node's name.
- /* S name() const { return converter<S>::out(this->impl()->name);}
+  S name() const;
   //. Return the node's path within its document.
   S path() const;
   //. Return the node's active base (See XBase).
   S base() const;
   //. Return the node's active language.
-  S lang() const;                                               */
+  S lang() const;
+
+  /*** NOTE:
+        lang() and path() functions not present in xerces library.        ***/
+
 
   //. Return the parent node, if any.
   node_ptr<element<S> const> parent() const 
@@ -93,6 +97,32 @@ private:
   static char const *names[7];
 
 };
+
+template <typename S>
+inline node_type node<S>::type() const
+{
+  return types[this->impl()->getNodeType()];
+}
+
+template <typename S>
+inline S node<S>::name() const
+{
+  return converter<S>::out(this->impl()->getNodeName());
+  // XMLCh* _name = this->impl()->getNodeName();
+  // S retn = converter<S>::out(_name);
+  // XMLString::release(&_name);
+  // return retn;
+}
+
+template <typename S>
+inline S node<S>::base() const
+{
+  return converter<S>::out(this->impl()->getBaseURI());
+  // XMLCh* _base = this->impl()->getBaseURI();
+  // S retn = converter<S>::out(_base);
+  // XMLString::release(&_base);
+  // return retn;
+}
 
 
 template <typename S>
