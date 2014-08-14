@@ -46,32 +46,29 @@ public:
 
 	node_ptr<element<S> const> root() const
 	{
-		DOMElement* _element = _document->getDocumentElement();
+		DOMElement* _element = this->impl()->getDocumentElement();
 		DOMNode* _node = dynamic_cast<DOMNode*>(_element);
   		return detail::ptr_factory<element<S> const>(_node);
 	}
 
 	node_ptr<element<S> > root()
 	{
-		std::cout<<"tttttsssssss\n";
 		DOMElement* _element = NULL;
-		_element = _document->getDocumentElement();
-		if(_element!=NULL)
-			std::cout<<"ttttt\n";
-		DOMNode* _node = reinterpret_cast<DOMNode*>(_element);
+		_element = this->impl()->getDocumentElement();
+		DOMNode* _node = dynamic_cast<DOMNode*>(_element);
 		
 		return element<S>(_node);
 	}
 
 	node_ptr<element<S> > create_root(const char* root_name)
 	{
-		_document = _dom_impl->createDocument(0, XMLString::transcode(root_name), _doctype , XMLPlatformUtils::fgMemoryManager );
+		this->impl() = _dom_impl->createDocument(0, XMLString::transcode(root_name), _doctype , XMLPlatformUtils::fgMemoryManager );
 		return root();
 	}
 
 	void set_version()
 	{
-		_document->setXmlVersion(XMLString::transcode("1.0") );
+		this->impl()->setXmlVersion(XMLString::transcode("1.0") );
 	}
 
 	void write()
@@ -87,12 +84,12 @@ public:
     	output->setEncoding(XMLString::transcode("UTF-8"));
     	StdOutFormatTarget* target = new StdOutFormatTarget();
     	output->setByteStream(target);
-    	writer->write(_document, output);
+    	writer->write(this->impl(), output);
     	delete target;
     	output->release();
 	}
 
-	~document() { _document->release(); }
+	~document() { this->impl()->release(); }
 
 private:
 	DOMImplementation* _dom_impl;

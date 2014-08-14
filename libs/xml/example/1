@@ -1,0 +1,55 @@
+element: article
+ text: '
+  '
+ element: title
+  text: 'An Article'
+ text: '
+  '
+ element: section
+  attribute: id="section1"
+  text: '
+    '
+  element: title
+   text: 'A section'
+  text: '
+    '
+  element: para
+   text: 'This is a paragraph.'
+  text: '
+  '
+ text: '
+  '
+ element: section
+  attribute: id="section2"
+  text: '
+    '
+  element: title
+   text: 'Another section'
+  text: '
+    '
+  element: section
+   attribute: id="section3"
+   text: '
+      '
+   element: title
+    text: 'A sub-section'
+   text: '
+      '
+   element: para
+    text: 'This paragraph refers to '
+    element: xref
+     attribute: linkend="section1"
+    text: ',
+        '
+    element: xref
+     attribute: linkend="section2"
+    text: ', and '
+    element: xref
+     attribute: linkend="section4"
+    text: '.'
+   text: '
+    '
+  text: '
+  '
+ text: '
+'

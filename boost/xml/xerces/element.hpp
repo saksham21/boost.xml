@@ -41,6 +41,9 @@ public:
 
 	attribute_iterator begin_attributes()
 	{
+		// std::cout<<"sam\n";
+		// if(this->impl()->hasAttributes())
+		// 	std::cout<<"Attributes present\n";
 		 DOMNamedNodeMap* attr = this->impl()->getAttributes();
 		 return attribute_iterator(reinterpret_cast<DOMNode *>(attr));
 	}
@@ -51,6 +54,7 @@ public:
 	}
 	attribute_iterator end_attributes()
 	{
+		// std::cout<<"wassup\n";
 		return attribute_iterator();
 	}
 	const_attribute_iterator end_attributes() const

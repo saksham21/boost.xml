@@ -3,6 +3,7 @@
 #include <iostream>
 #include <util/PlatformUtils.hpp>
 #include <parsers/XercesDOMParser.hpp>
+#include <dom/DOM.hpp>
 
 namespace dom = boost::xml::xerces::dom;
 
@@ -12,7 +13,7 @@ public:
   traversal() : indent_(0) {}
   void traverse(node_ptr node)
   {
-    std::cout<<"saksham\n";
+    // std::cout<< "ppp " <<node->type()<<std::endl;
     if (!node) return;
     switch (node->type())
     {
@@ -28,12 +29,16 @@ public:
   void traverse(element_ptr node)
   {
     std::cout << indent() << "element: " << node->name() << std::endl;
+    // std::cout<<"saksham\n";
     
     ++indent_;
-    for (element::attribute_iterator i = node->begin_attributes();
-	 i != node->end_attributes();
-	 ++i)
+    for (element::attribute_iterator i = node->begin_attributes();/* std::cout<<"hi\n" ,*/
+	 i != node->end_attributes(); ++i) /*, std::cout<<"hi1\n"; */
+	 //std::cout<<"hi2\n", ++i ,std::cout<<"hi3\n")
+    {
+      // std::cout<<"manu\n";
       traverse(*i);
+    }
     for (element::child_iterator i = node->begin_children();
 	 i != node->end_children();
 	 ++i)
@@ -42,24 +47,29 @@ public:
   }
   void traverse(attribute_ptr node)
   {
-    std::cout << indent() << "attribute: " 
+    // std::cout<<"z\n";
+    std::cout << indent() << "attribute: "
 	      << node->name() << "=\"" << node->value() << '"' << std::endl;
   }
   void traverse(text_ptr node)
   {
+    // std::cout<<"y\n";
     std::cout << indent() << "text: '" << node->content() << '\'' << std::endl;
   }
   void traverse(comment_ptr node)
   {
+    // std::cout<<"x\n";
     std::cout << indent() << "comment: '" << node->content() << '\'' << std::endl;
   }
   void traverse(pi_ptr node)
   {
+    // std::cout<<"w\n";
     std::cout << indent() << "processing instruction: '" 
 	      << node->name() << ' ' << node->content() << '\'' << std::endl;
   }
   void traverse(cdata_ptr node)
   {
+    // std::cout<<"v\n";
     std::cout << indent() << "cdata: '" << node->content() << '\'' << std::endl;
   }
 
@@ -69,7 +79,8 @@ private:
   size_t indent_;
 };
 
-
+XERCES_CPP_NAMESPACE_USE
+using namespace std;
 int main(int argc, char **argv)
 {
   if (argc != 2)
@@ -83,12 +94,15 @@ int main(int argc, char **argv)
     XMLPlatformUtils::Initialize();
     std::string const &filename = argv[1];
     XercesDOMParser _parser;
-    _parser.setValidationScheme(XercesDOMParser::Val_Always);
-    _parser.setDoNamespaces(true);
+    // _parser.setValidationScheme(XercesDOMParser::Val_Always);
+    // _parser.setDoNamespaces(true);
     _parser.parse(filename.c_str());
     // document_ptr document = dom::parse_file<S>(argv[1]);
+    // DOMDocument* dd=_parser.getDocument();
+    // DOMElement* _element = dd->getDocumentElement();
+    // DOMNode* _node = dynamic_cast<DOMNode*>(_element);
     document_ptr doc = boost::xml::xerces::dom::detail::factory<S>(_parser.getDocument());
-    std::cout<<"askhaks\n";
+    // std::cout<<"askhaks\n";
     traversal t;
     t.traverse(doc->root());
   }

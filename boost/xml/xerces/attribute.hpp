@@ -33,6 +33,9 @@ private:
 template <typename S>
 inline S attribute<S>::name() const
 {
+  // DOMNamedNodeMap* _attr = this->impl()->getAttributes();
+  // DOMNode* _node = reinterpret_cast<DOMNode*>(_attr);
+  // std::cout<<"here\n";
   return converter<S>::out(this->impl()->getNodeName());
   // XMLCh *value = this->impl()->getNodeName();
   // S retn = converter<S>::out(value);

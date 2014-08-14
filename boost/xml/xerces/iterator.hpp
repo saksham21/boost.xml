@@ -88,12 +88,12 @@ public:
   value_type operator *() { return detail::ptr_factory<N>(impl());}
   pointer operator ->() { return &(operator *());}
   self operator ++(int) { increment(); return *this;}
-  self operator ++() { self tmp = *this; increment(); return tmp;}
+  self operator ++() { /*std::cout<<"here\n";*/ self tmp = *this; increment(); return tmp;}
   self operator --(int) { decrement(); return *this;}
   self operator --() { self tmp = *this; decrement(); return tmp;}
 
 private:
-  void increment() { impl() = impl()->getNextSibling();}
+  void increment() { impl() = impl()->getNextSibling(); /*if(impl()==NULL)std::cout<<"sam: null\n";*/}
   void decrement() { impl() = impl()->getPreviousSibling();}
 };
 
