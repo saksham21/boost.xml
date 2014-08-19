@@ -1,21 +1,18 @@
-#ifndef boost_xml_xerces_dom_iterator_hpp_
-#define boost_xml_xerces_dom_iterator_hpp_
+#ifndef boost_xml_backends_xerces_dom_iterator_hpp_
+#define boost_xml_backends_xerces_dom_iterator_hpp_
 
-#include <dom/DOM.hpp>
+#include <xercesc/dom/DOM.hpp>
 #include <memory>
-
-XERCES_CPP_NAMESPACE_USE
 
 namespace boost
 {
 namespace xml
 {
-namespace xerces
-{
 namespace dom
 {
 namespace detail
 {
+XERCES_CPP_NAMESPACE_USE
 
 template <typename T> class wrapper;
 template <typename T> T impl_cast(wrapper<T> *);
@@ -74,7 +71,7 @@ std::auto_ptr<document<S> > factory(DOMDocument *d)
 } // namespace boost::xml::dom::detail
 
 template <typename N>
-class iterator : public detail::wrapper<DOMNode*>
+class iterator : public detail::wrapper<detail::DOMNode*>
 {
 public:
   typedef iterator<N> self;
@@ -82,24 +79,70 @@ public:
   typedef value_type &reference;
   typedef value_type *pointer;
 
-  iterator(DOMNode *current = 0) : detail::wrapper<DOMNode*>(current) {}
+  iterator(detail::DOMNode *current = 0) : detail::wrapper<detail::DOMNode*>(current) {}
   bool operator == (self i) { return impl() == impl(i);}
   bool operator != (self i) { return !operator==(i);}
   value_type operator *() { return detail::ptr_factory<N>(impl());}
   pointer operator ->() { return &(operator *());}
   self operator ++(int) { increment(); return *this;}
-  self operator ++() { /*std::cout<<"here\n";*/ self tmp = *this; increment(); return tmp;}
+  self operator ++() { self tmp = *this; increment(); return tmp;}
   self operator --(int) { decrement(); return *this;}
   self operator --() { self tmp = *this; decrement(); return tmp;}
 
 private:
-  void increment() { impl() = impl()->getNextSibling(); /*if(impl()==NULL)std::cout<<"sam: null\n";*/}
+  void increment() { impl() = impl()->getNextSibling();}
   void decrement() { impl() = impl()->getPreviousSibling();}
 };
 
-}
-}
-}
-}
+// specialization for attribute iteration
+template <typename S>
+class iterator<attribute<S> >
+{
+  typedef attribute<S> N;
+public:
+  typedef iterator<N> self;
+  typedef node_ptr<N> value_type;
+  typedef value_type &reference;
+  typedef value_type *pointer;
+
+  iterator(detail::DOMNamedNodeMap *map)
+    : map_(map), idx_(0)
+  {
+    if (map_->getLength() == 0) map_ = 0;
+  }
+  iterator() // the end iterator
+    : map_(0), idx_(0) {}
+  bool operator == (self i)
+  { return map_ == i.map_ && idx_ == i.idx_;}
+  bool operator != (self i) { return !operator==(i);}
+  value_type operator *()
+  {
+    return detail::ptr_factory<N>(map_->item(idx_));
+  }
+  pointer operator ->() { return &(operator *());}
+  self operator ++(int) { increment(); return *this;}
+  self operator ++() { self tmp = *this; increment(); return tmp;}
+
+private:
+  void increment()
+  {
+    if (map_)
+    {
+      if (++idx_ == map_->getLength())
+      {
+	// invalidate
+	map_ = 0;
+	idx_ = 0;
+      }
+    }
+  }
+
+  detail::DOMNamedNodeMap *map_;
+  XMLSize_t idx_;
+};
+
+} // namespace boost::xml::dom
+} // namespace boost::xml
+} // namespace boost
 
 #endif

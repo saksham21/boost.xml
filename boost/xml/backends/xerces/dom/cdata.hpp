@@ -1,13 +1,11 @@
-#ifndef boost_xml_xerces_dom_cdata_hpp_
-#define boost_xml_xerces_dom_cdata_hpp_
+#ifndef boost_xml_backends_xerces_dom_cdata_hpp_
+#define boost_xml_backends_xerces_dom_cdata_hpp_
 
-#include "node.hpp"
+#include <boost/xml/backends/xerces/dom/node.hpp>
 
 namespace boost
 {
 namespace xml
-{
-namespace xerces
 {
 namespace dom
 {
@@ -20,10 +18,9 @@ class cdata : public text<S>
   friend class element<S>;
 public:
 // private:
-  cdata(DOMNode *a) : text<S>(a) {}
+  cdata(detail::DOMNode *a) : text<S>(a) {}
 };
 
-}
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost

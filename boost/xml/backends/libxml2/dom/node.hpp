@@ -1,17 +1,13 @@
-#ifndef boost_xml_xerces_dom_node_hpp_
-#define boost_xml_xerces_dom_node_hpp_
+#ifndef boost_xml_dom_backends_libxml2_node_hpp_
+#define boost_xml_dom_backends_libxml2_node_hpp_
 
-#include "node_fwd.hpp"
-#include "iterator.hpp"
+#include <boost/xml/dom/nodefwd.hpp>
+#include <boost/xml/backends/libxml2/dom/iterator.hpp>
 #include <stdexcept>
-
-XERCES_CPP_NAMESPACE_USE
 
 namespace boost
 {
 namespace xml
-{
-namespace xerces
 {
 namespace dom
 {
@@ -49,22 +45,23 @@ template <typename T, typename N>
 inline T cast(node_ptr<N> n);
 
 template <typename S>
-class node : public detail::wrapper<DOMNode*>
+class node : public detail::wrapper<xmlNode*>
 {
   template <typename N> friend class iterator;
   friend class node_ptr<node<S> >;
   friend class node_ptr<node<S> const>;
   friend class element<S>;
-  friend node_ptr<node<S> > detail::ptr_factory<node<S> >(DOMNode *);
-  friend node_ptr<node<S> const> detail::ptr_factory<node<S> const>(DOMNode *);
+  friend class xpath<S>;
+  friend node_ptr<node<S> > detail::ptr_factory<node<S> >(xmlNode *);
+  friend node_ptr<node<S> const> detail::ptr_factory<node<S> const>(xmlNode *);
   template <typename T, typename N> friend T cast(node_ptr<N>);
 
 public:
-  bool operator== (node<S> const &n) {return impl() == impl(n);}
+  bool operator== (node<S> const &n) { return impl() == impl(n);}
 
-  node_type type() const;
+  node_type type() const { return types[this->impl()->type];}
   //. Return the node's name.
-  S name() const;
+  S name() const { return converter<S>::out(this->impl()->name);}
   //. Return the node's path within its document.
   S path() const;
   //. Return the node's active base (See XBase).
@@ -72,58 +69,51 @@ public:
   //. Return the node's active language.
   S lang() const;
 
-  /*** NOTE:
-        lang() and path() functions not present in xerces library.        ***/
-
-
   //. Return the parent node, if any.
   node_ptr<element<S> const> parent() const 
-  { return detail::ptr_factory<element<S> >(this->impl()->getParentNode());}
+  { return detail::ptr_factory<element<S> >(this->impl()->parent);}
   node_ptr<element<S> > parent() 
-  { return detail::ptr_factory<element<S> >(this->impl()->getParentNode());}
-
+  { return detail::ptr_factory<element<S> >(this->impl()->parent);}
 
 protected:
-  node(DOMNode *n) : detail::wrapper<DOMNode*>(n) {}
-  node(node<S> const &n) : detail::wrapper<DOMNode*>(n) {}
-  node<S> &operator=(node<S> const&n)
+  node(xmlNode *n) : detail::wrapper<xmlNode*>(n) {}
+  node(node<S> const &n) : detail::wrapper<xmlNode*>(n) {}
+  node<S> &operator=(node<S> const &n) 
   {
-    detail::wrapper<DOMNode*>::operator=(n);
+    detail::wrapper<xmlNode*>::operator=(n);
     return *this;
   }
-
 private:
   static node_type const types[22];
   static char const *names[7];
-
 };
 
 template <typename S>
-inline node_type node<S>::type() const
+inline S node<S>::path() const
 {
-  return types[this->impl()->getNodeType()];
-}
-
-template <typename S>
-inline S node<S>::name() const
-{
-  return converter<S>::out(this->impl()->getNodeName());
-  // XMLCh* _name = this->impl()->getNodeName();
-  // S retn = converter<S>::out(_name);
-  // XMLString::release(&_name);
-  // return retn;
+  xmlChar *path = xmlGetNodePath(this->impl());
+  S retn = converter<S>::out(path);
+  xmlFree(path);
+  return retn;
 }
 
 template <typename S>
 inline S node<S>::base() const
 {
-  return converter<S>::out(this->impl()->getBaseURI());
-  // XMLCh* _base = this->impl()->getBaseURI();
-  // S retn = converter<S>::out(_base);
-  // XMLString::release(&_base);
-  // return retn;
+  xmlChar *path = xmlNodeGetBase(0, this->impl());
+  S retn = converter<S>::out(path);
+  xmlFree(path);
+  return retn;
 }
 
+template <typename S>
+inline S node<S>::lang() const
+{
+  xmlChar *path = xmlNodeGetLang(this->impl());
+  S retn = converter<S>::out(path);
+  xmlFree(path);
+  return retn;
+}
 
 template <typename S>
 node_type const node<S>::types[22] =
@@ -164,7 +154,6 @@ char const *node<S>::names[7] =
   "comment"
 };
 
-}
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost

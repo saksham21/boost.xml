@@ -32,8 +32,7 @@ CPPFLAGS += $(shell pkg-config --cflags glibmm-2.4)  -DUSE_GSTRING
 LIBS += -lglibmm-2.4
 endif
 
-###targets := reader dom traverse xinclude validate_dtd config
-targets := traverse
+targets := reader dom traverse xinclude validate_dtd config
 
 all: $(targets)
 

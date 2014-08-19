@@ -1,16 +1,12 @@
-#ifndef boost_xml_xerces_dom_dtd_hpp_
-#define boost_xml_xerces_dom_dtd_hpp_
+#ifndef boost_xml_backends_libxml2_dom_dtd_hpp_
+#define boost_xml_backends_libxml2_dom_dtd_hpp_
 
-#include <dom/DOM.hpp>
+#include <libxml/tree.h>
 #include <string>
-
-XERCES_CPP_NAMESPACE_USE
 
 namespace boost
 {
 namespace xml
-{
-namespace xerces
 {
 namespace dom
 {
@@ -24,15 +20,15 @@ class dtd
   friend class document<S>;
   friend class dtd_ptr<S>;
 public:
-  const char* name() const { return XMLString::transcode(impl_->getName());}
-  const char* external_id() const { return XMLString::transcode(impl_->getPublicId());}    // DOMNotation.hpp
-  const char* system_id() const { return XMLString::transcode(impl_->getSystemId());}
+  std::string name() const { return static_cast<char *>(impl_->name);}
+  std::string external_id() const { return static_cast<char *>(impl_->ExternalID);}
+  std::string system_id() const { return static_cast<char *>(impl_->SystemID);}
   
 private:
-  dtd(DOMDocumentType *dtd) : impl_(dtd) {}
+  dtd(xmlDtd *dtd) : impl_(dtd) {}
   ~dtd() {}
 
-  DOMDocumentType *impl_;
+  xmlDtd *impl_;
 };
 
 template <typename S>
@@ -50,7 +46,6 @@ private:
   dtd<S> dtd_;
 };
 
-}
 } // namespace boost::xml::dom
 } // namespace boost::xml
 } // namespace boost

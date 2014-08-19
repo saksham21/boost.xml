@@ -1,14 +1,12 @@
-#ifndef boost_xml_xerces_dom_cast_hpp_
-#define boost_xml_xerces_dom_cast_hpp_
+#ifndef boost_xml_backends_libxml2_dom_cast_hpp_
+#define boost_xml_backends_libxml2_dom_cast_hpp_
 
-#include "node.hpp"
+#include <boost/xml/backends/libxml2/dom/node.hpp>
 #include <stdexcept>
 
 namespace boost
 {
 namespace xml
-{
-namespace xerces
 {
 namespace dom
 {
@@ -46,18 +44,17 @@ template <typename T, typename N>
 inline T cast(node_ptr<N> n)
 {
   if (n->impl() && 
-      N::types[n->impl()->getNodeType()] != detail::target<T>::type)
+      N::types[n->impl()->type] != detail::target<T>::type)
   {
-    node_type type = N::types[n->impl()->getNodeType()];
+    node_type type = N::types[n->impl()->type];
     throw invalid_cast(N::names[type]);
   }
   return detail::ptr_factory<typename detail::pointee<T>::type>(n->impl());
 }
 
 
-}
-}
-}
-}
+} // namespace boost::xml::dom
+} // namespace boost::xml
+} // namespace boost
 
 #endif
